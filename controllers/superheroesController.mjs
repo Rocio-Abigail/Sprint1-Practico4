@@ -1,6 +1,6 @@
 // controllers/superheroesController.mjs
 
-import { obtenerSuperheroePorId, buscarSuperheroesPorAtributo, obtenerSuperheroesMayoresDe30 } from '../services/superheroesService.mjs';
+import { obtenerSuperheroePorId, buscarSuperheroesPorAtributo, obtenerSuperheroesMayoresDe30, obtenerTodoslosSuperheroes } from '../services/superheroesService.mjs';
 import { renderizarSuperheroe, renderizarListaSuperheroes } from '../views/responseView.mjs';
 
 export function obtenerSuperheroePorIdController(req, res) {
@@ -25,5 +25,10 @@ export function buscarSuperheroesPorAtributoController(req, res) {
 
 export function obtenerSuperheroesMayoresDe30Controller(req, res) {
     const superheroes = obtenerSuperheroesMayoresDe30();
+    res.send(renderizarListaSuperheroes(superheroes));
+}
+
+export function obtenerTodoslosSuperheroesController(req,res) {
+    const superheroes = obtenerTodoslosSuperheroes();
     res.send(renderizarListaSuperheroes(superheroes));
 }
